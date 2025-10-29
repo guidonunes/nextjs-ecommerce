@@ -20,7 +20,7 @@ export default function LoginPage() {
     }
 
     try {
-      const response = await fetch('/api/dashboard/noplogin', {
+      const response = await fetch('/api/dashboard/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
