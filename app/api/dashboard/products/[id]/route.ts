@@ -1,22 +1,19 @@
 import { NextResponse } from "next/server";
 
 
-export async function GET(request: Request, props: { params: Promise<{ id: string }> }) {
+export async function GET(request: Request, props: { params: Promise<{ id: number}> }) {
+  // const params = await props.params;
+  const { id } = await props.params;
   try {
-    const { id } = await props.params;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/produtos/${id}`);
+    const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL}/api/produtos/${id}`);
     const data = await response.json();
     return NextResponse.json(data);
-
   } catch (error) {
-    console.error('Error fetching products:', error);
-    return NextResponse.json({error:'Failed to fetch products'}, { status: 500 });
+    console.error('Erro ao buscar produto:', error);
+    return NextResponse.json({ message: 'Erro ao buscar produto' }, { status: 500 });
   }
 }
 
-
-
-// ... existing GET and POST functions ...
 
 export async function PUT(request: Request, props: { params: Promise<{ id: string }> }) {
   try {

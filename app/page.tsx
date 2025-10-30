@@ -3,7 +3,9 @@ import { Produto } from "./interfaces/product.interface";
 
 async function getProducts(): Promise<Produto[]> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/dashboard/products`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/dashboard/products`,
+      {cache: 'no-store'}
+    );
 
     if (!res.ok) {
       throw new Error('Failed to fetch products');
@@ -19,8 +21,7 @@ async function getProducts(): Promise<Produto[]> {
 
 export default async function HomePage() {
   const products = await getProducts();
-
-
+  console.log('Products:', products);
 
   return (
     <main className="container mx-auto p-8">

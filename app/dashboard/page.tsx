@@ -89,7 +89,7 @@ export default function DashboardPage() {
                   </tr>
                 )
               }
-              {products.map((p) => (
+              {Array.isArray(products) && products.map((p) => (
                 <tr key={p.id} className="border-t border border-gray-700 hover:bg-gray-600">
                   <td className="px-6 py-4 border border-gray-700">{p.id}</td>
                   <td className="px-6 py-4 border border-gray-700">{p.nome}</td>
