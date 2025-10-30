@@ -71,14 +71,14 @@ export default function DashboardPage() {
         <p className="mt-6">Loading products...</p>
       ) : (
         <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full bg-[#31394c] rounded-lg border-gray-800 shadow-md">
+          <table className="min-w-full bg-[#31394c] rounded-lg border border-gray-700 shadow-md">
             <thead>
               <tr>
-                <th className="px-6 py-3 border-black">ID</th>
-                <th className="px-6 py-3 border-black">Name</th>
-                <th className="px-6 py-3 border-black">Price</th>
-                <th className="px-6 py-3 border-black">Stock</th>
-                <th className="px-6 py-3 border-black">Actions</th>
+                <th className="px-6 py-3 border border-gray-700">ID</th>
+                <th className="px-6 py-3 border border-gray-700">Name</th>
+                <th className="px-6 py-3 border border-gray-700">Price</th>
+                <th className="px-6 py-3 border border-gray-700">Stock</th>
+                <th className="px-6 py-3 border border-gray-700">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -90,12 +90,12 @@ export default function DashboardPage() {
                 )
               }
               {products.map((p) => (
-                <tr key={p.id} className="border-t border-black">
-                  <td className="px-6 py-4">{p.id}</td>
-                  <td className="px-6 py-4">{p.nome}</td>
-                  <td className="px-6 py-4">${p.valor.toFixed(2)}</td>
-                  <td className="px-6 py-4">{p.quantidade}</td>
-                  <td className="px-6 py-4 flex gap-2">
+                <tr key={p.id} className="border-t border border-gray-700 hover:bg-gray-600">
+                  <td className="px-6 py-4 border border-gray-700">{p.id}</td>
+                  <td className="px-6 py-4 border border-gray-700">{p.nome}</td>
+                  <td className="px-6 py-4 border border-gray-700">${p.valor.toFixed(2)}</td>
+                  <td className="px-6 py-4 border border-gray-700">{p.quantidade}</td>
+                  <td className="px-6 py-4 border border-gray-700 flex gap-2">
                   <Link href={`/dashboard/product/${p.id}/edit`} className="px-3 py-1 bg-blue-500 text-white rounded flex">Edit</Link>
                   <button onClick={() => handleDelete(p.id)} className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded flex">Delete</button>
                   </td>
