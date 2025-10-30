@@ -11,9 +11,9 @@ export default function AddToCartButton({ product }: { product: Produto }) {
   return (
     <button
       onClick={() => addToCart(product, 1)}
-      className="bg-blue-600 text-white px-3 py-2 rounded"
+      className="bg-amber-500 hover:bg-amber-600 text-black px-3 py-2 rounded-lg"
     >
-      Adicionar ao carrinho
+      Add to Cart
     </button>
   );
 }

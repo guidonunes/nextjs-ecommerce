@@ -1,6 +1,7 @@
 // src/components/ProdutoCard.tsx
 import { Produto } from '../interfaces/product.interface';
 import Link from 'next/link';
+import AddToCartButton from './addToCartButton';
 
 interface ProdutoCardProps {
   produto: Produto;
@@ -16,6 +17,9 @@ export default function ProductCard({ produto }: ProdutoCardProps) {
           currency: 'USD',
         }).format(produto.valor)}
       </p>
+      <div className="mt-4">
+        <AddToCartButton product={produto} />
+      </div>
     </Link>
   );
 }
