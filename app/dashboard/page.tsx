@@ -37,7 +37,8 @@ export default function DashboardPage() {
     }
   }
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id?: number) => {
+    if(!id) return;
     if(!confirm('Are you sure you want to delete this product?')) {
       return;
     }
