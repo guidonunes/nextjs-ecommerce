@@ -1,4 +1,5 @@
 // src/app/produtos/[id]/page.tsx
+import AddToCartButton from "@/app/components/addToCartButton";
 import { Produto } from "../../interfaces/product.interface";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,13 +35,18 @@ export default async function ProdutoPage({ params }: { params: Promise<{ id: st
         </p>
 
         <div className="space-y-3 text-lg">
-          <p><span className="font-semibold text-white">Quantidade em estoque:</span> {produto.quantidade}</p>
-          <p><span className="font-semibold">Data de fabricação:</span> {new Date(produto.dataFabricacao).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</p>
+          <p><span className="font-semibold text-white">In stock:</span> {produto.quantidade}</p>
+          <p><span className="font-semibold">Date of manufacture:</span> {new Date(produto.dataFabricacao).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</p>
         </div>
+
+          <div className="space-y-3 w-full mt-3">
+            <AddToCartButton product={produto} />
+          </div>
+
 
         <div className="mt-8">
           <Link href="/" className="text-amber-500 hover:text-amber-600 hover:underline transition-colors">
-            &larr; Voltar para a lista de produtos
+            &larr; Back to products
           </Link>
         </div>
       </div>
